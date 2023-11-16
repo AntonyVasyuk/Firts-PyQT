@@ -1,4 +1,4 @@
-import random
+from random import randint
 import sys
 
 from PyQt5 import QtGui
@@ -21,12 +21,12 @@ class StrangeClass(QMainWindow, Ui_UI):
 
     def paintEvent(self, a0: QtGui.QPaintEvent) -> None:
         self.qp.begin(self)
-        self.qp.setBrush(QColor("#FFF200"))
-        self.qp.setPen(QColor("#FFDD00"))
 
-        for i in range(random.randint(10, 30)):
-            r = random.randint(1, 100)
-            self.qp.drawEllipse(QPoint(random.randint(1, self.width()), random.randint(1, self.height())), r, r)
+        for i in range(randint(10, 30)):
+            r = randint(1, 100)
+            self.qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
+            self.qp.setPen(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
+            self.qp.drawEllipse(QPoint(randint(1, self.width()), randint(1, self.height())), r, r)
 
         self.qp.end()
 
